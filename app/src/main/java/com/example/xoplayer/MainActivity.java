@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
@@ -50,10 +51,16 @@ public class MainActivity extends AppCompatActivity {
                 {
                     case R.id.folderList:
                         Toast.makeText(MainActivity.this, "Folder", Toast.LENGTH_SHORT).show();
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.mainFragment, new FolderFragment());
+                        fragmentTransaction.commit();
                         item.setChecked(true);
                         break;
                     case R.id.filesList:
                         Toast.makeText(MainActivity.this, "Files", Toast.LENGTH_SHORT).show();
+                        FragmentTransaction fragmentTransaction2 = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction2.replace(R.id.mainFragment, new FilesFragment());
+                        fragmentTransaction2.commit();
                         item.setChecked(true);
                         break;
                 }
@@ -71,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
         else
         {
             Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.mainFragment, new FolderFragment());
+            fragmentTransaction.commit();
             videoFiles = getAllVideos(this);
         }
 
@@ -86,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
             {
                 Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
                 videoFiles = getAllVideos(this);
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.mainFragment, new FolderFragment());
+                fragmentTransaction.commit();
             }
             else
             {

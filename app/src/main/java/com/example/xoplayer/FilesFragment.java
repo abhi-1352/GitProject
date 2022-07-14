@@ -1,16 +1,25 @@
 package com.example.xoplayer;
 
+import static com.example.xoplayer.MainActivity.videoFiles;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 
 
 public class FilesFragment extends Fragment {
+
+    RecyclerView recyclerView;
+    View view;
+    VideoAdapter videoAdapter;
 
 
 
@@ -19,13 +28,19 @@ public class FilesFragment extends Fragment {
     }
 
 
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_files, container, false);
+        view = inflater.inflate(R.layout.fragment_files, container, false);
+        recyclerView = view.findViewById(R.id.filesRV);
+
+        if (videoFiles != null && videoFiles.size() > 0)
+        {
+            videoAdapter = new VideoAdapter(getContext(), videoFiles);
+            recyclerView.setAdapter(videoAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        }
+        return view;
     }
 }

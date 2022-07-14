@@ -1,6 +1,8 @@
 package com.example.xoplayer;
 
-public class VideoFiles {
+import java.util.ArrayList;
+
+public class VideoFiles extends ArrayList<VideoFiles> {
 
     private String id;
     private String path;
