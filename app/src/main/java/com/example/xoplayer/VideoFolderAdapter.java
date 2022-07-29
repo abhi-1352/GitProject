@@ -16,14 +16,14 @@ import com.bumptech.glide.Glide;
 import java.io.File;
 import java.util.ArrayList;
 
-public class VideoAdapter  extends RecyclerView.Adapter<VideoAdapter.MyViewholder>{
+public class VideoFolderAdapter  extends RecyclerView.Adapter<VideoFolderAdapter.MyViewholder>{
     private Context mContext;
-    static ArrayList<VideoFiles> videoFiles;
+    static ArrayList<VideoFiles> foldervideoFiles;
     View view;
 
-    public VideoAdapter(Context mContext, ArrayList<VideoFiles> videoFiles) {
+    public VideoFolderAdapter(Context mContext, ArrayList<VideoFiles> foldervideoFiles) {
         this.mContext = mContext;
-        this.videoFiles = videoFiles;
+        this.foldervideoFiles = foldervideoFiles;
     }
 
     @NonNull
@@ -35,14 +35,14 @@ public class VideoAdapter  extends RecyclerView.Adapter<VideoAdapter.MyViewholde
 
     @Override
     public void onBindViewHolder(@NonNull MyViewholder holder, int position) {
-        holder.fileName.setText(videoFiles.get(position).getTitle());
-        Glide.with(mContext).load(new File(videoFiles.get(position).getPath())).into(holder.thumbnail);
+        holder.fileName.setText(foldervideoFiles.get(position).getTitle());
+        Glide.with(mContext).load(new File(foldervideoFiles.get(position).getPath())).into(holder.thumbnail);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, PlayerActivity.class);
                 intent.putExtra("position", position);
-                intent.putExtra("sender","FilesIsSending");
+                intent.putExtra("sender","FolderIsSending");
                 mContext.startActivity(intent);
             }
         });
@@ -51,7 +51,7 @@ public class VideoAdapter  extends RecyclerView.Adapter<VideoAdapter.MyViewholde
 
     @Override
     public int getItemCount() {
-        return videoFiles.size();
+        return foldervideoFiles.size();
     }
 
     public class MyViewholder  extends RecyclerView.ViewHolder {

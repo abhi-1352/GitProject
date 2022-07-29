@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Xoplayer">
         <activity
+            android:name=".VideoFolderActivity"
+            android:exported="false" />
+        <activity
             android:name=".PlayerActivity"
             android:exported="false" />
         <activity

@@ -7,14 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="#5E5D60">
+    android:background="#B5000000">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swipe_refresh_folders">
+
+
+
+
+
 
     <FrameLayout
         android:id="@+id/mainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/bottomNavView"
+        android:layout_below="@+id/tool"
         android:layout_alignParentTop="true" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavView"
@@ -28,18 +40,10 @@
 
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/tool">
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="@string/app_name"-->
-<!--            android:textAlignment="center"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="20sp"-->
-<!--            android:textStyle="bold">-->
 
-<!--        </TextView>-->
 
     </androidx.appcompat.widget.Toolbar>
 

@@ -15,14 +15,16 @@
         android:background="#23E44040"
         app:hide_on_touch="true"
         app:resize_mode="fit"
-
-        app:show_timeout="5000"
+        app:fastforward_increment="10000"
+        app:rewind_increment="10000"
+        app:show_timeout="4000"
         app:shutter_background_color="@color/black"
-
-
+        app:played_color="#F82626"
+        app:surface_type="surface_view"
         app:use_controller="true"
-        app:controller_layout_id="@layout/custom_controller_view"/>
-<!--        app:player_layout_id="@layout/exo_simple_player_view"/>-->
+        app:controller_layout_id="@layout/custom_controller_view"
+        app:player_layout_id="@layout/exo_styled_player_view"/>
+       app:player_layout_id="@layout/exo_simple_player_view"/>
 
 
 </LinearLayout>
